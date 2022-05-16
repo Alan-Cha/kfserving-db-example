@@ -9,3 +9,17 @@ To run the experiment:
 ```bash
 iter8 run
 ```
+
+After running the experiment, to check the metrics:
+
+```bash
+iter8 report
+```
+
+Or:
+
+```bash
+iter8 report -o html > report.html 
+```
+
+... and view the report in a browser.
