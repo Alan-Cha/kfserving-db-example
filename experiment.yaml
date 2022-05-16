@@ -5,9 +5,8 @@
     # will look metrics file kfserving.metrics.yaml
     - kfserving
     versionInfo:
-      - destination_workload: flowers
-        destination_workload_namespace: ns-candidate
-        startingTime: 1647360597
+      - namespace_name: ns-candidate
+        startingTime: Jan 2, 2006 at 3:04pm (MST)
 # task 2: validate service level objectives for app using
 # the metrics collected in the above task
 - task: assess-app-versions
