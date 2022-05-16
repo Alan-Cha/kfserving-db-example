@@ -1,0 +1,14 @@
+url: http://prometheus-operated.iter8-system:9090/api/v1/query
+provider: kfserving
+method: GET
+metrics:
+- name: request-count
+  description: |
+    Number of requests
+  type: guage
+  units: milliseconds
+  params:
+  - name: query
+    value: |
+      histogram_quantile(0.95, sum(rate(revision_app_request_latencies_bucket{namespace_name='$ns'}[${elapsedTime}s])) by (le))
+  jqExpression: .data.result[0].value[1]

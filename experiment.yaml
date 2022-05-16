@@ -1,0 +1,22 @@
+# task 1: collect metrics
+- task: collect-metrics-database
+  with:
+    providers:
+    # will look metrics file kfserving.metrics.yaml
+    - kfserving
+    versionInfo:
+      - destination_workload: flowers
+        destination_workload_namespace: ns-candidate
+        startingTime: 1647360597
+# task 2: validate service level objectives for app using
+# the metrics collected in the above task
+- task: assess-app-versions
+  with:
+    SLOs:
+    - metric: "kfserving/request-count"
+      upperLimit: 0
+# tasks 3 & 4: print if SLOs are satisfied or not
+- if: SLOs()
+  run: echo "SLOs satisfied"
+- if: not SLOs()
+  run: echo "SLOs not satisfied"
