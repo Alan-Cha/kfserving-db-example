@@ -5,7 +5,7 @@ metrics:
 - name: request-count
   description: |
     Number of requests
-  type: guage
+  type: gauge
   units: milliseconds
   params:
   - name: query
